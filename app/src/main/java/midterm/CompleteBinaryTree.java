@@ -128,7 +128,51 @@ public class CompleteBinaryTree {
         }
         return str;
     }
+    public Boolean question1(){
+        return question1Helper(this.root);
+    }
 
+    public Boolean question1Helper(Node curr){
+
+        Node currleft = this.root.left;
+        Node currright = this.root.right;
+        if (this.root == null)
+            return false;
+        else{
+            if (this.root > currleft)
+                question1Helper(currleft);
+            else
+                return false;
+        
+            if (this.root > currright)
+                question1Helper(currright);
+            else
+            return false;
+        return true;
+        }
+    }
+    
+    public CompleteBinaryTree question2(CompleteBinaryTree tree){
+        if (this.root == null)
+            return null; 
+        return levelOrderTraversal(this.root);
+    }
+    
+    public CompleteBinaryTree levelOrderTraversal(Node curr){
+
+        CompleteBinaryTree clone = new CompleteBinaryTree();
+    
+        Node result = this.root;
+        Node left = levelOrderTraversal(curr.left);
+        clone.insert(left.data);
+        Node right = levelOderTraversal(curr.right);
+        clone.insert(right.data);
+        
+        return clone;
+
+    }
+    
+    
     public static void main(String[] args) {
         CompleteBinaryTree tree = new CompleteBinaryTree();
         tree.insert(1);
