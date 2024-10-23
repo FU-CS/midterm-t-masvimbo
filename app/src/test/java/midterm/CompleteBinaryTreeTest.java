@@ -43,5 +43,48 @@ class CompleteBinaryTreeTest {
         assertEquals(tree.toString(), "1 2 4 ", "Deleting 3 should return '1 2 4'");
     }
 
+    @Test   // Test max tree
+    void question1maxtree() {
+        CompleteBinaryTree tree = new CompleteBinaryTree();
+        tree.insert(10);
+        tree.insert(9);
+        tree.insert(8);
+        tree.insert(7);
+        question1();
+        equals(true);
+    }
+    @Test   // Test empty tree
+    void question1emptytree() {
+        CompleteBinaryTree tree = new CompleteBinaryTree();
+        question1();
+        equals(false);
+    }
 
+    @Test // Test false empty tree
+    void question1notmaxtree() {
+        CompleteBinaryTree tree = new CompleteBinaryTree();
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(3);
+        tree.insert(4);
+        question1();
+        equals(false);
+    }
+    @Test //copy tree
+    void question2copytree() {
+        CompleteBinaryTree tree = new CompleteBinaryTree();
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(3);
+        tree.insert(4);
+        CompleteBinaryTree clone = question2(tree);
+        assertEquals(clone.toString(), "1 2 3 4 ");
+    }
+    @Test //copy empty tree
+    void question2copyemptytree() {
+        CompleteBinaryTree tree = new CompleteBinaryTree();
+        CompleteBinaryTree clone = question2(tree);
+        assertEquals(null, null);
+    }
+    
 }
